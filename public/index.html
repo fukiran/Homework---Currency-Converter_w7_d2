@@ -9,7 +9,11 @@
 </head>
 <body>
     <div id="app">
-        
+        <label for="currency_select">Select Currency</label>
+        <select id="currency_select" v-model="selectedCurrency">
+        <option disabled value=""></option>
+        <option v-for="(rate, currency) in ratesTable.rates" v-bind:value="currency">{{ currency }}</option>
+        </select>
         
     </div>
 </body>
