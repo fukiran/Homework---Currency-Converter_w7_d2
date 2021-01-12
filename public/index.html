@@ -9,12 +9,18 @@
 </head>
 <body>
     <div id="app">
+
         <label for="currency_select">Select Currency</label>
-        <select id="currency_select" v-model="selectedCurrency">
-        <option disabled value=""></option>
-        <option v-for="(rate, currency) in ratesTable.rates" v-bind:value="currency">{{ currency }}</option>
+        <select id="currency_select" v-model="selectedCurrencyRate">
+            <option disabled value=""></option>
+            <option v-for="(rate, currency) in ratesTable.rates" v-bind:value="rate">{{ currency }}</option>
         </select>
-        
+
+        <label for="amount">Amount</label>
+        <input id="amount" type="number" v-model.number="amount">
+
+
+    <h1>{{selectedCurrencyRate * amount}}</h1>
     </div>
 </body>
 </html>
