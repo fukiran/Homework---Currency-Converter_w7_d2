@@ -10,6 +10,13 @@
 <body>
     <div id="app">
 
+        <label for="fromto"></label>
+        <select name="" id="fromto" v-model="fromto">
+            <option disabled selected value=""></option>
+            <option value="fromEuros">From Euros</option>
+            <option value="intoEuros">Into Euros</option>
+        </select>
+
         <label for="currency_select">Select Currency</label>
         <select id="currency_select" v-model="selectedCurrencyRate">
             <option disabled value=""></option>
@@ -19,8 +26,11 @@
         <label for="amount">Amount</label>
         <input id="amount" type="number" v-model.number="amount">
 
+        <h1 v-if="fromto == 'Nan'" >0.00 </h1>
 
-    <h1>{{selectedCurrencyRate * amount}}</h1>
+        <h1 v-if="fromto ==='fromEuros'" >{{ (selectedCurrencyRate * amount).toFixed(2) }} </h1>
+        <h1 v-if="fromto ==='intoEuros'" >{{ (amount / selectedCurrencyRate ).toFixed(2) }} </h1>
+
     </div>
 </body>
 </html>

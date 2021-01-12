@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
         data: {
             ratesTable: [],
             selectedCurrencyRate: null,
-            amount: 0
+            amount: 0,
+            fromto: null
         },
         mounted(){
             this.getRates()
